@@ -204,7 +204,7 @@ body {
   inset: -20px;
   background-size: cover;
   background-position: center;
-  filter: blur(14px) brightness(0.55);
+  filter: blur(5px) brightness(1.55);
   transform: scale(1.08);
   z-index: 0;
 }
