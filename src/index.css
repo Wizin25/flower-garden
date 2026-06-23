@@ -1,0 +1,487 @@
+@import 'tailwindcss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  background: #2a1810;
+  color: #fff8f5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── Password Page ── */
+
+.password-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  background-color: #22140c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(40, 24, 16, 0.45);
+  z-index: 1;
+}
+
+.password-card {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  width: calc(100% - 2rem);
+  background: rgba(255, 255, 255, 0.026);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.password-title {
+  font-size: clamp(1.25rem, 4vw, 1.6rem);
+  font-weight: 500;
+  color: #fff8f5;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.password-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 248, 245, 0.85);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.pin-display {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 248, 245, 0.6);
+  background: transparent;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.pin-dot-filled {
+  background: #fff8f5;
+  border-color: #fff8f5;
+  transform: scale(1.1);
+}
+
+.pin-shake {
+  animation: pin-shake 0.45s ease;
+}
+
+@keyframes pin-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+.pin-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.pin-key {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: #fff8f5;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.pin-key:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(1.05);
+}
+
+.pin-key:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.pin-key-action {
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pin-key-enter {
+  color: #3d2018;
+  background: linear-gradient(135deg, #ffe8e0 0%, #f5d0c8 100%);
+  border-color: transparent;
+}
+
+.pin-key-enter:hover:not(:disabled) {
+  background: linear-gradient(135deg, #fff0ea 0%, #f8dcd4 100%);
+}
+
+.pin-key-enter:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.password-error {
+  font-size: 0.9rem;
+  color: #ffc8c8;
+  margin-top: 1.25rem;
+}
+
+/* ── Garden Page ── */
+
+.garden-page {
+  position: relative;
+  min-height: 100vh;
+}
+
+.garden-bg {
+  position: fixed;
+  inset: -20px;
+  background-size: cover;
+  background-position: center;
+  filter: blur(14px) brightness(0.55);
+  transform: scale(1.08);
+  z-index: 0;
+}
+
+.garden-overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(30, 18, 12, 0.35) 0%,
+    rgba(40, 24, 16, 0.55) 50%,
+    rgba(30, 18, 12, 0.65) 100%
+  );
+  z-index: 1;
+}
+
+.garden-content {
+  position: relative;
+  z-index: 4;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem 6.5rem;
+}
+
+.garden-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.garden-header h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #fff8f5;
+  text-shadow: 0 2px 16px rgba(255, 200, 180, 0.35);
+  padding: 0.5rem 0;
+}
+
+.header-divider {
+  height: 1px;
+  max-width: 280px;
+  margin: 0.75rem auto;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 220, 200, 0.5),
+    transparent
+  );
+}
+
+.section-title {
+  font-size: clamp(1.4rem, 4vw, 1.8rem);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: rgba(255, 248, 245, 0.95);
+}
+
+/* ── CSS Petals ── */
+
+.petal-float {
+  top: -30px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 250, 248, 0.85),
+    rgba(255, 220, 210, 0.55)
+  );
+  border-radius: 50% 50% 50% 0;
+  opacity: 0;
+  animation: petal-fall linear infinite;
+  filter: blur(0.3px);
+}
+
+@keyframes petal-fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(40px);
+    opacity: 0;
+  }
+}
+
+/* ── Featured Images ── */
+
+.featured-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.featured-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.featured-card img {
+  display: block;
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+}
+
+/* ── Messages ── */
+
+.messages-section {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.quote {
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  font-style: italic;
+  color: rgba(255, 235, 225, 0.95);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.message-body {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  line-height: 1.7;
+  color: rgba(255, 248, 245, 0.88);
+}
+
+.message-body p {
+  margin: 0;
+}
+
+/* ── Polaroid Gallery ── */
+
+.gallery-section {
+  margin-bottom: 4rem;
+}
+
+.polaroid-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.polaroid {
+  background: #faf8f5;
+  padding: 12px 12px 28px;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 1px 4px rgba(0, 0, 0, 0.15);
+  transform: rotate(var(--rotate, 0deg));
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  cursor: default;
+  width: 100%;
+  max-width: 260px;
+}
+
+.polaroid:hover {
+  transform: rotate(0deg) scale(1.06);
+  box-shadow:
+    0 0 30px rgba(255, 220, 180, 0.55),
+    0 0 60px rgba(255, 200, 160, 0.3),
+    0 12px 40px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+}
+
+.polaroid-photo {
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  background: #e8e4df;
+}
+
+.polaroid-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.polaroid:hover .polaroid-photo img {
+  transform: scale(1.08);
+}
+
+.polaroid figcaption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  color: #5a4a42;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* ── Music ── */
+
+.music-section {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.spotify-player-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(20, 12, 8, 0.92);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 220, 200, 0.15);
+  box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.35);
+}
+
+.spotify-player-bar .spotify-embed {
+  display: block;
+  width: 100%;
+  height: 80px;
+  border: none;
+}
+
+.music-album-name {
+  font-size: 1.15rem;
+  color: rgba(255, 235, 225, 0.9);
+  margin-bottom: 0.5rem;
+}
+
+.music-hint {
+  font-size: 0.95rem;
+  color: rgba(255, 248, 245, 0.6);
+}
+
+.spotify-placeholder {
+  padding: 1.5rem;
+  color: rgba(255, 248, 245, 0.75);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.spotify-placeholder code {
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.3rem 0.7rem;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #ffe8d8;
+}
+
+.spotify-hint {
+  font-size: 0.95rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .garden-content {
+    padding: 2rem 1rem 4rem;
+  }
+
+  .polaroid-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.25rem;
+  }
+}
