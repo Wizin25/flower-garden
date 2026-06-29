@@ -120,14 +120,14 @@ export default function LilyPetalsCanvas() {
           petal.y = -petal.size
         }
 
-        // Nếu là hình ảnh hoa, vẽ bằng ảnh
+        // Եթե là hình ảnh hoa, vẽ bằng ảnh
         if (petal.isImage && petal.image) {
           let img = petal.imgObj
           if (!img) {
             img = imageCacheRef.current[petal.image]
             petal.imgObj = img
           }
-          if (img && img.complete) {
+          if (img && img.complete && img.naturalWidth > 0) {
             drawFlowerImage(ctx, img, petal.x, petal.y, petal.size, petal.rotation, petal.opacity)
           } else {
             // fallback vẽ petal thường khi ảnh chưa sẵn sàng

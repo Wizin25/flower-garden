@@ -14,7 +14,7 @@ export default function MusicSection() {
   }, [])
 
   return (
-    <section className="music-section">
+    <section className="music-section" >
       <h2 className="section-title" style={{ color: '#fff' }}>Her IG</h2>
       <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0' }}>
         {/* Instagram Embed */}
