@@ -50,7 +50,7 @@ export default function PasswordPage({ onUnlock }) {
       <div className="password-overlay" aria-hidden="true" />
 
       <main className="password-card">
-        <h1 className="password-title">🌸 Một khu vườn dành riêng cho bà chã hơm 🌸</h1>
+        <h1 className="password-title">🌸 Một khu vườn dành riêng cho em 🌸</h1>
         <p className="password-subtitle">Nhập mật khẩu để bước vào</p>
 
         <div className={`pin-display ${shake ? 'pin-shake' : ''}`} aria-label="Mật khẩu">

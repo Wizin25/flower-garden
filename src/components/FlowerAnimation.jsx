@@ -12,7 +12,7 @@ const flowerImages = Object.values(
 
 // Seed hoa 1 lần duy nhất, không re-random khi re-render
 function buildFlowers(images) {
-  const TOTAL = 300
+  const TOTAL = 100
 
   return Array.from({ length: TOTAL }, (_, i) => {
     const img = images[i % images.length]

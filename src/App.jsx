@@ -60,7 +60,7 @@ function App() {
                 e.currentTarget.style.color = 'rgba(255,248,245,0.85)'
               }}
             >
-              🔒 Khóa
+              🔒
             </button>
           )}
         </>

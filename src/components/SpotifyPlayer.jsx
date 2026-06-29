@@ -1,27 +1,27 @@
-import { GARDEN_CONFIG } from '../config/gardenConfig'
-
-function buildSpotifySrc() {
-  const base = GARDEN_CONFIG.spotifyEmbedUrl
-  if (!base) return ''
-
-  if (base.includes('autoplay=1')) return base
-
-  return base.includes('?') ? `${base}&autoplay=1` : `${base}?autoplay=1`
-}
-
 export default function SpotifyPlayer() {
-  const src = buildSpotifySrc()
-  if (!src) return null
-
   return (
-    <div className="spotify-player-bar" aria-label="Nhạc nền Spotify">
-      <iframe
-        src={src}
-        title="À premier regard — Billy Easton"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-        loading="eager"
-        className="spotify-embed"
-      />
+    <div className="spotify-player-bar" aria-label="Nhạc nền">
+      <div
+        style={{
+          position: 'fixed',
+          bottom: '20px',
+          right: '20px',
+          zIndex: 1000,
+          boxShadow: '0 2px 10px rgba(0,0,0,0.3)',
+          borderRadius: '12px',
+          overflow: 'hidden',
+          background: 'rgba(1, 1, 1, 0)',
+        }}
+      >
+        <audio
+          controls
+          autoPlay
+          style={{ display: 'grid', width: 50, borderRadius: '20px', background: 'transparent' }}
+        >
+          <source src="/assets/song.mp3" type="audio/mpeg" />
+          Trình duyệt của bạn không hỗ trợ audio element.
+        </audio>
+      </div>
     </div>
-  )
+  );
 }

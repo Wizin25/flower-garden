@@ -1,3 +1,4 @@
+// Tạo mảng cánh hoa chỉ toàn petal gradient (không xài hình ảnh)
 const CSS_PETALS = Array.from({ length: 18 }, (_, i) => ({
   id: i,
   left: `${(i * 5.7 + 3) % 100}%`,

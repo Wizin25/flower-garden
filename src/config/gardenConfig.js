@@ -1,18 +1,22 @@
 export const GARDEN_CONFIG = {
-  password: '0405',
+  password: '2505',
 
-  // Album: À premier regard — Billy Easton
-  spotifyEmbedUrl:
-    'https://open.spotify.com/embed/album/5p2MB739QgW8aCefkURz23?utm_source=generator&autoplay=1',
+  // SoundCloud: nu9eve - e17a17ef-c6c0-451d-886d-3ef4f344b614
+  soundcloudEmbedUrl:
+    'https://soundcloud.com/nu9eve/e17a17ef-c6c0-451d-886d-3ef4f344b614',
 
-  quote: 'Em giống như ánh nắng đầu ngày...',
+  quote: 'To love someone deeply gives you strength; to be loved by someone deeply gives you courage.',
 
   messages: [
-    'Có thể em sẽ không bao giờ đọc hết',
-    'những gì anh muốn nói.',
-    '',
-    'Nhưng nếu em đang ở đây,',
-    'cảm ơn em vì đã xuất hiện',
-    'trong cuộc đời anh.',
+    "To the girl who means the world to me,",
+    "I made this little corner on the internet just for you.",
+    "Maybe it's not perfect, but it's filled with all the things that remind me of you—your laughter, your stories, and even your quiet moments.",
+    "",
+    "Whenever life gets overwhelming, I hope you'll find some comfort and joy here.",
+    "No matter where you go or how far we are, I want you to remember you are always loved and cherished.",
+    "This is your safe place, built by someone who thinks you're truly special.",
+    "",
+    "With all my love,",
+    "— Yours",
   ],
 }
