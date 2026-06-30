@@ -1,5 +1,44 @@
 @import 'tailwindcss';
 
+:root {
+  /* LiquidGlass tunables (áp cho card/nav) */
+  --liquid-blur: 2px;            /* tăng blur một chút cho nav pills */
+  --liquid-saturate: 1.25;
+  --liquid-overlay: rgba(255, 255, 255, 0); /* overlay */
+  --liquid-border: rgba(255, 255, 255, 0.35);
+  --liquid-radius: 100px;
+}
+
+/* ========== LIQUID GLASS (áp cho các card/pill) ========== */
+/* gom selector để dùng được cả 'liquid' và 'LiquidGlass' nếu lẫn lộn */
+.liquid, .LiquidGlass {
+  position: relative;
+  border-radius: var(--liquid-radius);
+  background: var(--liquid-overlay);
+  border: 1px solid var(--liquid-border);
+  /* Fallback blur + saturate */
+  backdrop-filter: blur(var(--liquid-blur)) saturate(var(--liquid-saturate));
+  -webkit-backdrop-filter: blur(var(--liquid-blur)) saturate(var(--liquid-saturate));
+  /* Distortion (Chromium/Edge): */
+  backdrop-filter: url(#liquidGlass) blur(var(--liquid-blur)) saturate(var(--liquid-saturate));
+  -webkit-backdrop-filter: url(#liquidGlass) blur(var(--liquid-blur)) saturate(var(--liquid-saturate));
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,.12);
+}
+
+/* highlight cạnh kính cho elements dùng liquid */
+.liquid::before, .LiquidGlass::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background:
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.07), transparent 40%),
+    radial-gradient(120% 60% at 0% -10%, rgba(255,255,255,.28), transparent 60%),
+    radial-gradient(90% 70% at 100% -20%, rgba(255,255,255,.18), transparent 60%);
+  mix-blend-mode: overlay;
+}
+
 *,
 *::before,
 *::after {
@@ -64,16 +103,16 @@ body {
   padding: 2.5rem 2rem;
   max-width: 420px;
   width: calc(100% - 2rem);
-  background: rgba(255, 255, 255, 0.026);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  /* background: rgba(255, 255, 255, 0); */
+  /* backdrop-filter: blur(5px); */
+  /* -webkit-backdrop-filter: blur(12px); */
+  /* border: 1px solid rgba(255, 255, 255, 0.25); */
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .password-title {
-  font-size: clamp(1.25rem, 4vw, 1.6rem);
+  font-size: clamp(1.2rem, 3vw, 1.2rem);
   font-weight: 500;
   color: #fff8f5;
   line-height: 1.5;
@@ -204,7 +243,7 @@ body {
   inset: -20px;
   background-size: cover;
   background-position: center;
-  filter: blur(5px) brightness(1.55);
+  filter: blur(0px) brightness(1.55);
   transform: scale(1.08);
   z-index: 0;
 }

@@ -19,7 +19,7 @@ export default function GardenPage() {
 
       <LilyPetalsCSS />
       <LilyPetalsCanvas />
-
+      
       <main className="garden-content">
         <motion.header
           className="garden-header"
@@ -28,7 +28,9 @@ export default function GardenPage() {
           transition={{ duration: 0.8 }}
         >
           <div className="header-divider" />
-          <h1>🌸 Someone Special 🌸</h1>
+          <h1>🌸 Hải Huyền 🌸</h1>
+          <div className="header-divider" />
+          <h1>25-05-2005</h1>
           <div className="header-divider" />
         </motion.header>
 

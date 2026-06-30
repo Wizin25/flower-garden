@@ -48,9 +48,36 @@ export default function PasswordPage({ onUnlock }) {
         aria-hidden="true"
       />
       <div className="password-overlay" aria-hidden="true" />
-
-      <main className="password-card">
-        <h1 className="password-title">🌸 Một khu vườn dành riêng cho em 🌸</h1>
+      <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+        <defs>
+          <filter
+            id="liquidGlass"
+            x="-20%"
+            y="-20%"
+            width="140%"
+            height="140%"
+            colorInterpolationFilters="sRGB"
+          >
+            <feTurbulence
+              type="fractalNoise"
+              baseFrequency="0.008 0.012"
+              numOctaves="1"
+              seed="10"
+              result="noise"
+            />
+            <feGaussianBlur in="noise" stdDeviation="2" result="map" />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="map"
+              scale="100"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </defs>
+      </svg>
+      <main className="password-card liquid">
+        <h1 className="password-title">🌸 Một khu vườn dành cho em 🌸</h1>
         <p className="password-subtitle">Nhập mật khẩu để bước vào</p>
 
         <div className={`pin-display ${shake ? 'pin-shake' : ''}`} aria-label="Mật khẩu">
@@ -90,7 +117,7 @@ export default function PasswordPage({ onUnlock }) {
         </div>
 
         {error && (
-          <p className="password-error">Em quên ngày sinh của mình rồi hả bà chã 💕</p>
+          <p className="password-error">Là ngày sinh nhật của chúng ta💕</p>
         )}
       </main>
     </div>
